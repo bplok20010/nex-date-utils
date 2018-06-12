@@ -36,11 +36,13 @@ export default function add(date, interval, value) {
                 // e.g., 8 days is one 5-day weekspan / and two leftover days
                 // Can't have zero leftover days, so numbers divisible by 5 get
                 // a days value of 5, and the remaining days make up the number of weeks
-                let days, weeks, amount = parseInt(value, 10);
+                let days,
+                    weeks,
+                    amount = parseInt(value, 10);
                 let mod = amount % 5;
                 if (!mod) {
-                    days = (amount > 0) ? 5 : -5;
-                    weeks = (amount > 0) ? ((amount - 5) / 5) : ((amount + 5) / 5);
+                    days = amount > 0 ? 5 : -5;
+                    weeks = amount > 0 ? (amount - 5) / 5 : (amount + 5) / 5;
                 } else {
                     days = mod;
                     weeks = parseInt(amount / 5);
@@ -61,11 +63,11 @@ export default function add(date, interval, value) {
                 let trgt = strt + days;
                 // New date is on Sat or Sun
                 if (trgt == 0 || trgt == 6) {
-                    adj = (amount > 0) ? 2 : -2;
+                    adj = amount > 0 ? 2 : -2;
                 }
                 // Increment by number of weeks plus leftover days plus
                 // weekend adjustments
-                amount = (7 * weeks) + days + adj;
+                amount = 7 * weeks + days + adj;
 
                 d = add(d, defs.DAY, amount);
             }

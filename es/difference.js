@@ -23,7 +23,7 @@ export default function difference(date1, date2, interval) {
                 const q1 = Math.floor(m1 / 3) + 1;
                 let q2 = Math.floor(m2 / 3) + 1;
                 // Add quarters for any year difference between the dates
-                q2 += (yearDiff * 4);
+                q2 += yearDiff * 4;
                 delta = q2 - q1;
             }
             break;
@@ -47,7 +47,7 @@ export default function difference(date1, date2, interval) {
                     // Mark the date advanced by the number of
                     // round weeks (may be zero)
                     let dtMark = new Date(date1);
-                    dtMark.setDate(dtMark.getDate() + (weeks * 7));
+                    dtMark.setDate(dtMark.getDate() + weeks * 7);
                     let dayMark = dtMark.getDay();
 
                     // Spare change days -- 6 or less
@@ -57,20 +57,20 @@ export default function difference(date1, date2, interval) {
                             case aDay == 6:
                                 adj = -1;
                                 break;
-                                // Range starts on Sun
+                            // Range starts on Sun
                             case aDay == 0:
                                 adj = 0;
                                 break;
-                                // Range ends on Sat
+                            // Range ends on Sat
                             case bDay == 6:
                                 adj = -1;
                                 break;
-                                // Range ends on Sun
+                            // Range ends on Sun
                             case bDay == 0:
                                 adj = -2;
                                 break;
-                                // Range contains weekend
-                            case (dayMark + mod) > 5:
+                            // Range contains weekend
+                            case dayMark + mod > 5:
                                 adj = -2;
                         }
                     } else if (days < 0) {
@@ -79,25 +79,25 @@ export default function difference(date1, date2, interval) {
                             case aDay == 6:
                                 adj = 0;
                                 break;
-                                // Range starts on Sun
+                            // Range starts on Sun
                             case aDay == 0:
                                 adj = 1;
                                 break;
-                                // Range ends on Sat
+                            // Range ends on Sat
                             case bDay == 6:
                                 adj = 2;
                                 break;
-                                // Range ends on Sun
+                            // Range ends on Sun
                             case bDay == 0:
                                 adj = 1;
                                 break;
-                                // Range contains weekend
-                            case (dayMark + mod) < 0:
+                            // Range contains weekend
+                            case dayMark + mod < 0:
                                 adj = 2;
                         }
                     }
                     days += adj;
-                    days -= (weeks * 2);
+                    days -= weeks * 2;
                 }
                 delta = days;
             }
@@ -106,7 +106,7 @@ export default function difference(date1, date2, interval) {
             delta = yearDiff;
             break;
         case defs.MONTH:
-            delta = (date2.getMonth() - date1.getMonth()) + (yearDiff * 12);
+            delta = date2.getMonth() - date1.getMonth() + yearDiff * 12;
             break;
         case defs.WEEK:
             // Truncate instead of rounding
@@ -115,16 +115,16 @@ export default function difference(date1, date2, interval) {
             break;
         case defs.DAY:
             delta /= 24;
-            // fallthrough
+        // fallthrough
         case defs.HOUR:
             delta /= 60;
-            // fallthrough
+        // fallthrough
         case defs.MINUTE:
             delta /= 60;
-            // fallthrough
+        // fallthrough
         case defs.SECOND:
             delta /= 1000;
-            // fallthrough
+        // fallthrough
         case defs.MILLI:
             delta *= date2.getTime() - date1.getTime();
     }

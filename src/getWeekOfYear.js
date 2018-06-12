@@ -1,4 +1,4 @@
-import defs from './_defines';
+import defs from './defines';
 
 export default function getWeekOfYear(date) {
     const DC3 = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate() + 3) / defs.ms1d, // an Absolute Day Number

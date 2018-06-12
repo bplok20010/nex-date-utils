@@ -8,7 +8,8 @@ import defs from './defines';
  * @param {Date} date The date
  * @return {Number} 本月天数
  */
-export default function getDaysInMonth(date) { // return a closure for efficiency
-    const m = date.getMonth();
-    return m == 1 && isLeapYear(date) ? 29 : defs.daysInMonth[m];
+export default function getDaysInMonth(date) {
+  // return a closure for efficiency
+  const m = date.getMonth();
+  return m == 1 && isLeapYear(date) ? 29 : defs.daysInMonth[m];
 }
