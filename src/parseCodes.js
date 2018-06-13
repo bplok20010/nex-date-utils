@@ -256,10 +256,12 @@ const parseCodes = {
     }
 };
 
-export default function getParseCode(code) {
+function getParseCode(code) {
     let pCode = parseCodes[code];
 
     if (isFunction(pCode)) pCode = pCode();
 
     return pCode;
 }
+
+export default getParseCode;
