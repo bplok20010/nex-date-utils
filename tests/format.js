@@ -1,4 +1,6 @@
 const format = require('../lib/format')
+const getParseCode = require('../lib/getParseCode');
+const createParser = require('../lib/createParser');
 
 const c_date = new Date();
 
@@ -11,3 +13,15 @@ console.log(format(c_date, 'r'));
 console.log(format(c_date, 'e'));
 
 console.log(format(c_date, 'B'));
+
+console.log("================================")
+
+const pattern = Object.keys(getParseCode.parseCodes).join('###');
+
+const parser = createParser(pattern);
+
+let s;
+
+console.log(s = format(c_date, pattern));
+
+console.log(parser(s), new Date())

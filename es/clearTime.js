@@ -1,4 +1,4 @@
-import defs from './_defines';
+import defs from './defines';
 import add from './add';
 import clone from './clone';
 
