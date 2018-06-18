@@ -25,6 +25,9 @@
             "off",
             "always"
         ],
-		"no-mixed-spaces-and-tabs": ["off", false]
+        "no-mixed-spaces-and-tabs": ["off", false],
+        "no-console": [
+            "warn"
+        ]
     }
 }

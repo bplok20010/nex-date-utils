@@ -130,7 +130,7 @@ const formatCodes = {
     s: function(date) {
         return pad(date.getSeconds(), 2, '0');
     },
-    //毫秒  示例: 654321
+    //毫秒  示例: 321
     u: function(date) {
         return pad(date.getMilliseconds(), 3, '0')
     },

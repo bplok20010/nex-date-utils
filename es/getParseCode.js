@@ -45,10 +45,8 @@ const parseCodes = {
         r: "[0-6]" // javascript day number (0 (sunday) - 6 (saturday))
     },
     z: {
-        f: function (v, date) {
-            date.z = parseInt(v, 10);
-        },
-        r: "(\\d{1,3})" // day of the year (0 - 364 (365 in leap years))
+        f: null,
+        r: "\\d{1,3}" // day of the year (0 - 364 (365 in leap years))
     },
     W: {
         f: null,
